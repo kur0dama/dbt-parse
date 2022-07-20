@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dbt_parse"
+version = "0.1.0"
+description = "POC lexer/parser written in pure dbt macros"
+authors = ["kur0dama <hk2557@protonmail.com>"]
+license = "GPL v3"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+dbt-duckdb = "^1.1.4"
+
+[tool.poetry.dev-dependencies]
+pyflakes = "^2.4.0"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
