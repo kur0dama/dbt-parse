@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: dbt_test
+    description: "Test for dbt setup"
+    columns:
+      - name: DRUG_NAME
+        description: "Drug Name String"
+        tests:
+          - not_null
+
+sources:
+  - name: main
+    tables:
+      - name: sample_data
