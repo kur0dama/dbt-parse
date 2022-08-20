@@ -14,8 +14,10 @@ if __name__ == '__main__':
         os.remove(PATHS.DUCKDB_PATH)
     con = duckdb.connect(database=PATHS.DUCKDB_PATH.as_posix(), read_only=False)
     df_sample = importSampleData()
-    con.execute('CREATE TABLE main.sample_data AS SELECT * FROM df_sample')
+    con.execute('DROP TABLE IF EXISTS main.df_sample; CREATE TABLE main.sample_data AS SELECT * FROM df_sample;')
     # test results
-    con.execute('SELECT * FROM information_schema.tables')
+    con.execute('SELECT * FROM information_schema.tables;')
     df_info_schema = con.fetchdf().loc[:,['table_schema', 'table_name']]
+    print('SCHEMA/TABLE RESULTS')
+    print('-'*80)
     print(df_info_schema)
